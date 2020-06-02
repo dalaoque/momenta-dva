@@ -4,7 +4,7 @@
   "description": "dva for momoenta",
   "main": "index.js",
   "dependencies": {
-    "dva": "^2.2.3",
+    "dva": "^2.4.1",
     "string-format": "^2.0.0"
   },
   "devDependencies": {
