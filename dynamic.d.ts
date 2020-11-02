@@ -3,7 +3,7 @@
 
 declare class dynamic {
     constructor(resolve: (value?: PromiseLike<any>) => void)
-    static setDefaultLoadingComponent: (c?: React.ElementType) => void
+    static setDefaultLoadingComponent: (c?: React.ReactNode) => void
 }
 
 export default dynamic
