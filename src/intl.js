@@ -20,13 +20,12 @@ const createTranslate = (local) => {
   const languages = { ...global, ...local };
   return (key, ...params) => {
     const item = languages[key];
+    let text = "NO KEY";
 
-    let text = item[current];
     if (!(key in languages)) {
       new Error(
-        `intl:No languages(${current},${fallback}) for the key[${key}]`
+        `intl:You need to declare a JSON languages object whose key is [${key}]`
       );
-      text = "NO KEY";
     } else {
       if (text === undefined) {
         text = "undefined";
@@ -36,6 +35,7 @@ const createTranslate = (local) => {
         new Error(`Init: [${key}]: value is not a string or number in locales`);
         text = "-";
       }
+      text = item[current];
     }
     // if (text === undefined || typeof text !== 'string') {
     //   throw new Error(`intl:No languages(${current},${fallback}) for the key[${key}]`)
