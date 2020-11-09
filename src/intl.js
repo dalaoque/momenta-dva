@@ -24,20 +24,43 @@ const createTranslate = (local) => {
 
     if (!(key in languages)) {
       console.error(
-        `intl:You need to declare a JSON languages object whose key is [${key}]`
+        `intl:You need to declare a JSON languages object whose key is [${key}]`,
+        "languages: ",
+        languages,
+        "current: ",
+        current
       );
     } else {
+      text = item[current];
       if (text === undefined) {
         text = "undefined";
+        console.error(
+          `intl: Language not found`,
+          `[${key}]`,
+          "languages: ",
+          languages,
+          "current: ",
+          current
+        );
       } else if (text === null) {
         text = "null";
+        console.error(
+          `intl: Language not found`,
+          `[${key}]`,
+          "languages: ",
+          languages,
+          "current: ",
+          current
+        );
       } else if (typeof text !== "string") {
         console.error(
-          `Init: [${key}]: value is not a string or number in locales`
+          `Init: [${key}]: value is not a string or number in locales`,
+          languages,
+          "current: ",
+          current
         );
-        text = "-";
+        text = "not string";
       }
-      text = item[current];
     }
     // if (text === undefined || typeof text !== 'string') {
     //   throw new Error(`intl:No languages(${current},${fallback}) for the key[${key}]`)
